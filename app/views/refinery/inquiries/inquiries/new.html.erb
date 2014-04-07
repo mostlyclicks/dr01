@@ -1,0 +1,105 @@
+<div id="l2-header">
+  <div class="container" id="l2-nav">
+    <div class="row">
+      <div class="col-md-3">
+        <%= link_to (image_tag 'Logo-cropped.png', class: 'img-responsive', id: 'logo'), '/' %>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-6 col-md-offset-2">
+        <div class="row"  id="l2-nav">
+          <div class="col-md-4 col-xs-4" id="about">
+            <h2><%= link_to 'About', '/about' %></h2>
+          </div>
+          <div class="col-md-4 col-xs-4" id="services">
+            <h2><%= link_to 'Services', '/services' %></h2>
+          </div>
+          <div class="col-md-4 col-xs-4" id="resources">
+            <h2><%= link_to 'Resources', '/resources' %></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="l2-content">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="nav nav-pills nav-stacked">
+        <li><%= link_to ('<i class="fa fa-users"></i> ').html_safe + ' Our Staff', '/our-staff'%></li>
+        <li><%= link_to ('<i class="fa fa-file-text"></i> ').html_safe + ' Intake Form', '/intake-form' %></li>
+        <li><%= link_to ('<i class="fa fa-envelope"></i> ').html_safe + ' Contact', '/contact' %></li>
+      </ul>
+
+      <% @page.images.each do |image| %>
+        <%= image_fu(image, '300x300#c', class: 'img-responsive l2-images') %>
+      <% end %>
+      
+    </div>
+    <div class="col-md-8">
+      <h1>Contact</h1>
+      <div class="row">
+        <div class='inquiries col-md-8'>
+      <%#= render '/refinery/content_page' %>
+       <%= raw @page.content_for(Refinery::Pages.default_parts.first.to_sym) if Refinery::Pages.default_parts.any? %>
+      <%= form_for [refinery, :inquiries, @inquiry], html: {class: 'form-horizontal', role: 'form'} do |f| %>
+      <%= render :partial => "/refinery/admin/error_messages",
+                 :locals => {
+                   :object => @inquiry,
+                   :include_object_name => true
+                 } %>
+      <div class="field form-group">
+        <%= f.required_label :name, :class => 'placeholder-fallback col-md-3 control-label ' %>
+        <div class="col-md-6">
+        <%= f.text_field :name, :class => 'text', :required => 'required',
+          :placeholder => t('name', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') if Refinery::Inquiries.show_placeholders %>
+        </div>
+      </div>
+      <div class="field form-group">
+        <%= f.required_label :email, :class => 'placeholder-fallback col-md-3 control-label ' %>
+        <div class="col-md-6">
+        <%= f.email_field :email, :class => 'text email', :required => 'required',
+          :placeholder => t('email', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') if Refinery::Inquiries.show_placeholders %>
+        </div>
+      </div>
+
+      <% if Refinery::Inquiries.show_phone_number_field %>
+        <div class="field form-group">
+          <%= f.label :phone, :class => 'placeholder-fallback col-md-3 control-label ' %>
+          <div class="col-md-6">
+          <%= f.text_field :phone, :class => 'text phone',
+            :placeholder => t('phone', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') if Refinery::Inquiries.show_placeholders %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class='field form-group message_field'>
+        <%= f.required_label :message, :class => 'placeholder-fallback col-md-3 control-label ' %>
+        <div class="col-md-6">
+        <%= f.text_area :message, :rows => 8, :required => 'required',
+          :placeholder => t('message', :scope => 'activerecord.attributes.refinery/inquiries/inquiry') if Refinery::Inquiries.show_placeholders %>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="col-md-offset-3 col-md-8">
+        <%= f.submit t('.send'), class: 'btn btn-primary' %>
+        <%= link_to t('.privacy_policy'), "/pages/privacy-policy", :id => "privacy_link" if Refinery::Inquiries.show_contact_privacy_link %>
+      </div>
+      </div>
+    <% end %>
+  </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+<% content_for :body do %>
+ 
+  
+  <div class='inquiries'>
+
+  </div>
+<% end %>
+<%#= render "/refinery/content_page" %>
