@@ -6,21 +6,36 @@
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   body {
-    border:3px solid red;
+    //border:3px solid red;
   }
+  #about, #services, #resources {
+    padding:2px;
+    a {
+      display:block;
+      min-height:220px;
+      }
+    }
+    h2 {
+      font-size:30px !important;
+      font-weight:100 !important;
+    }
 
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   body {
-    border:3px solid blue;
+    //border:3px solid blue;
   }
+
+
+
+
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   body {
-    border:3px solid yellow;
+    //border:3px solid yellow;
   }
 }

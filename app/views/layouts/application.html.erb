@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<%= render "/refinery/html_tag" %>
+  <% site_bar = render('/refinery/site_bar', :head => true) -%>
+  <head>
+    <%= render "/refinery/head" %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body id="<%= canonical_id @page %>">
+    <%= site_bar -%>
+    <div id="page_container">
+      <header id="header">
+        <div id="top">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-right">
+                <i class="fa fa-phone"></i> (608) 799-6820 | <i class="fa fa-envelope"></i> <a href="mailto:info@driftlessrecovery.com">info@driftlessrecovery.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= render "/refinery/header" -%>
+      </header>
+      <section id="page">
+        <%= yield %>
+      </section>
+
+      <section id="contact">
+         <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-md-offset-1 text-center">
+              <h1><i class="fa fa-file-text-o fa-4x"></i></h1>
+              <h3>Download intake form</h3>
+              <p>For your convenience, please download this form, print and complete before your first visit.</p>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2879.125127196495!2d-91.250339!3d43.811763899999995!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f955081eb9dc83%3A0xa6c237f4c09ebb89!2s444+Main+St!5e0!3m2!1sen!2sus!4v1396829421849" width="98%" height="250" frameborder="0" style="border:1"></iframe>
+              <div class="row">
+                <div class="col-md-6">
+                  <p>
+                    444 Main St. Suite 301<br />
+                    La Crosse, WI 54601
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <p>
+                  <i class="fa fa-phone"></i> (608) 799-6820<br />
+                  <a href="mailto:info@driftlessrecovery.com"><i class="fa fa-envelope"></i> info@driftlessrecovery.com</a>
+                  </p>  
+                </div>
+              </div>
+
+              
+              
+
+            </div>
+          </div>
+        </div>
+
+
+      </section>
+
+      <footer>
+        <%= render "/refinery/footer" -%>
+      </footer>
+    </div>
+    <%= render "/refinery/javascripts" %>
+  </body>
+</html>
