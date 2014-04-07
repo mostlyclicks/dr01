@@ -1,1 +1,45 @@
-<%= render '/refinery/content_page' %>
+  <div id="l2-header">
+  <div class="container" id="l2-nav">
+    <div class="row">
+      <div class="col-md-3">
+        <%= link_to (image_tag 'Logo-cropped.png', class: 'img-responsive', id: 'logo'), '/' %>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-6 col-md-offset-2">
+        <div class="row"  id="l2-nav">
+          <div class="col-md-4 col-xs-4" id="about">
+            <h2><%= link_to 'About', '/about' %></h2>
+          </div>
+          <div class="col-md-4 col-xs-4" id="services">
+            <h2><%= link_to 'Services', '/services' %></h2>
+          </div>
+          <div class="col-md-4 col-xs-4" id="resources">
+            <h2><%= link_to 'Resources', '/resources' %></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="container" id="l2-content">
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+          <li><%= link_to ('<i class="fa fa-users"></i> ').html_safe + ' Our Staff', '/our-staff'%></li>
+          <li><%= link_to ('<i class="fa fa-file-text"></i> ').html_safe + ' Intake Form', '/intake-form' %></li>
+          <li><%= link_to ('<i class="fa fa-envelope"></i> ').html_safe + ' Contact', '/contact' %></li>
+        </ul>
+
+        <% @page.images.each do |image| %>
+          <%= image_fu(image, '300x300#c', class: 'img-responsive l2-images') %>
+        <% end %>
+        
+      </div>
+      <div class="col-md-8">
+        <%= render '/refinery/content_page' %>
+      </div>
+    </div>
+  </div>
+
+
+

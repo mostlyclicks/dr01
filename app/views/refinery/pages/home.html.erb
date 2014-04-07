@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <%= image_tag 'Logo-cropped.png', class: 'img-responsive', id: 'logo' %>
+        <%= link_to (image_tag 'Logo-cropped.png', class: 'img-responsive', id: 'logo'), '/' %>
       </div>
       <div class="col-md-8">
       </div>
@@ -15,16 +15,6 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4 col-md-offset-1" id="address">
-<!--         <p>
-          444 Main St. Suite 301<br />
-          La Crosse, WI 54601
-        </p>
-        <p>
-          <i class="fa fa-phone"></i> (608) 799-6820<br />
-          <i class="fa fa-envelope"></i> <a href="mailto:info@driftlessrecovery.com">info@driftlessrecovery.com</a>
-
-
-        </p> -->
       </div>
       <div class="col-md-7">
         <div class="row">
@@ -38,14 +28,9 @@
             <h2><%= link_to 'Resources', '/resources' %></h2>
           </div>
         </div>
-
-
       </div>
     </div>
   </div>
-  
-
-
 </div>
 
 <div id="section2">
@@ -55,7 +40,6 @@
          <%= @page.content_for(:lead_text).html_safe %>
       </div>
     </div>
-   
   </div>
 </div>
 
