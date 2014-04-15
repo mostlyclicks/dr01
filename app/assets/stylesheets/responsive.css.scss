@@ -20,6 +20,17 @@
       font-weight:100 !important;
     }
 
+  #l2-nav #about, #l2-nav #services, #l2-nav #resources {
+  margin-top:0px;
+  a {
+    min-height:140px !important;  
+  }
+}
+
+#l2-content {
+  margin-top:230px;   
+}
+
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -27,6 +38,17 @@
   body {
     //border:3px solid blue;
   }
+
+  #l2-nav #about, #l2-nav #services, #l2-nav #resources {
+  margin-top:50px;
+  a {
+    min-height:140px !important;  
+  }
+}
+
+#l2-content {
+  margin-top:40px;   
+}
 
 
 
