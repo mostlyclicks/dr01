@@ -1,1 +1,15 @@
-<%= render "/refinery/content_page" %>
+ <div class="container" id="l2-content">
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+          <li><%= link_to ('<i class="fa fa-users"></i> ').html_safe + ' Our Staff', '/our-staff'%></li>
+          <li><%= link_to ('<i class="fa fa-file-text"></i> ').html_safe + ' Intake Form', '/intake-form' %></li>
+          <li><%= link_to ('<i class="fa fa-envelope"></i> ').html_safe + ' Contact', '/contact' %></li>
+        </ul>
+        
+      </div>
+      <div class="col-md-8">
+        <%= render '/refinery/content_page' %>
+      </div>
+    </div>
+  </div>
